@@ -18,7 +18,7 @@ const Header = () => {
 
   const fetchProfile = async () => {
     try {
-      const response = await fetch("https://my-blogs-baclkend.onrender.com/profile", {
+      const response = await fetch("https://my-blogs-xlgz.onrender.com/profile", {
         credentials: "include",
       });
   
@@ -35,7 +35,7 @@ const Header = () => {
   };
   const logout = async () => {
     try {
-      const response = await fetch("https://my-blogs-baclkend.onrender.com/logout", {
+      const response = await fetch("https://my-blogs-xlgz.onrender.com/logout", {
         credentials: "include",
         method: "POST",
       });
