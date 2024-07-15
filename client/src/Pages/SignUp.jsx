@@ -11,7 +11,7 @@ const SignUp = () => {
         
         e.preventDefault();
 
-        const resp = await fetch("http://localhost:8080/register",{
+        const resp = await fetch("https://my-blogs-xlgz.onrender.com/register",{
            method:"POST",
            body:JSON.stringify({name,email,password}),
            headers:{"content-type":"application/json"}
