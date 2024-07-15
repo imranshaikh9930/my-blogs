@@ -7,7 +7,7 @@ const Comments = ({ c,  }) => {
   const deleteComment = async (id) => {
     try {
       // await axios.delete(URL+"/api/comments/"+id,{withCredentials:true})
-      await fetch(`http://localhost:8080/create/${id}`, {
+      await fetch(`https://my-blogs-baclkend.onrender.com/${id}`, {
         method: "DELETE",
       });
       window.location.reload();

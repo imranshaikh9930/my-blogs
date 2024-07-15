@@ -5,7 +5,7 @@ import { UserContext } from "../Context/UserContext";
 
 const Header = () => {
   const navigate = useNavigate();
-  const { userInfo, setUserInfo } = useContext(UserContext);
+  const { userInfo, setUserInfo,setIsUser } = useContext(UserContext);
 
 
   useEffect(() => {
@@ -15,14 +15,16 @@ const Header = () => {
   useEffect(() => {
     const username = userInfo?.email;
   }, []); 
+
   const fetchProfile = async () => {
     try {
-      const response = await fetch("http://localhost:8080/profile", {
+      const response = await fetch("https://my-blogs-baclkend.onrender.com/profile", {
         credentials: "include",
       });
   
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
+        
       }
   
       const data = await response.json();
@@ -33,7 +35,7 @@ const Header = () => {
   };
   const logout = async () => {
     try {
-      const response = await fetch("http://localhost:8080/logout", {
+      const response = await fetch("https://my-blogs-baclkend.onrender.com/logout", {
         credentials: "include",
         method: "POST",
       });
@@ -43,6 +45,7 @@ const Header = () => {
       }
 
       setUserInfo(null);
+      setIsUser(false);
       navigate("/login");
     } catch (error) {
       console.error("Error during logout:", error);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { formatISO9075, format } from "date-fns";
+import { format } from "date-fns";
 import toast from "react-hot-toast";
 import Comments from "../Components/Comments";
 import { useParams, NavLink, useNavigate } from "react-router-dom";
@@ -14,7 +14,12 @@ const PostPage = () => {
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(true);
-  const { userInfo } = useContext(UserContext);
+  const { userInfo,isUser } = useContext(UserContext);
+
+  useEffect(()=>{
+
+    console.log(userInfo);
+  },[])
 
   useEffect(() => {
     const getPost = async () => {
@@ -79,13 +84,18 @@ const PostPage = () => {
 
 
   const postComment = async () => {
+
+    if(!isUser){
+      toast.error("Login First");
+      return 
+    }
     const formData = new FormData();
     formData.append("comment", comment);
     formData.append("author", userInfo.name);
     formData.append("postId", postInfo._id);
     formData.append("userId", userInfo.id);
     try {
-      const resp = await fetch("http://localhost:8080/create", {
+      const resp = await fetch("https://my-blogs-baclkend.onrender.com/create", {
         method: "POST",
         body: formData,
         credentials: "include",
@@ -127,7 +137,7 @@ const PostPage = () => {
               </div>
             )}
             <div className="image">
-              <img src={`http://localhost:8080/${postInfo.cover}`} alt="" />
+              <img src={`https://my-blogs-baclkend.onrender.com/${postInfo.cover}`} alt="" />
             </div>
             <div
               className="content"

@@ -6,7 +6,7 @@ const IndexPage = () => {
 
   const getData = async () => {
     try {
-      const resp = await fetch("http://localhost:8080/post");
+      const resp = await fetch("https://my-blogs-baclkend.onrender.com/post");
       const data = await resp.json();
 
       console.log(data);

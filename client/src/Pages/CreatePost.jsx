@@ -30,7 +30,7 @@ const CreatePost = () => {
       }
     
       try {
-        const response = await fetch("http://localhost:8080/post", {
+        const response = await fetch("https://my-blogs-baclkend.onrender.com/post", {
           method: 'POST',
           body: data,
           credentials: "include"

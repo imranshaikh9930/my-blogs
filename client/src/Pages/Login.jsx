@@ -8,7 +8,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const {setUserInfo} = useContext(UserContext);
+  const {setUserInfo,setIsUser} = useContext(UserContext);
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +24,7 @@ const Login = () => {
      }
 
    
-      const resp = await fetch("http://localhost:8080/login", {
+      const resp = await fetch("https://my-blogs-baclkend.onrender.com/login", {
         method: "POST",
         body: JSON.stringify({ username, password }),
         headers: { "content-type": "application/json" },
@@ -34,10 +34,11 @@ const Login = () => {
       if (resp.status === 200) {
         const data = await resp.json();
         // console.log(data);
-        toast.success("Login Sucessfully", {})
+        toast.success("Login Sucessfully")
         setUserInfo(data);
-        
         navigate("/");
+        setIsUser(true)
+        
       }
       else{
         toast.error("invalid Credentials")
