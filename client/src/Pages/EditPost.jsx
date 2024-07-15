@@ -12,7 +12,7 @@ const EditPost = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch('https://my-blogs-baclkend.onrender.com/post/'+id)
+        fetch('https://my-blogs-xlgz.onrender.com/'+id)
           .then(response => {
             response.json().then(postInfo => {
               setTitle(postInfo.title);
@@ -33,7 +33,7 @@ const EditPost = () => {
         if (files?.[0]) {
           data.set('file', files?.[0]);
         }
-        const response = await fetch('https://my-blogs-baclkend.onrender.com/post', {
+        const response = await fetch('https://my-blogs-xlgz.onrender.com/post', {
           method: 'PUT',
           body: data,
           credentials: 'include',
