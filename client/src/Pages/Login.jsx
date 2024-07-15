@@ -24,7 +24,7 @@ const Login = () => {
      }
 
    
-      const resp = await fetch("https://my-blogs-baclkend.onrender.com/login", {
+      const resp = await fetch("https://my-blogs-xlgz.onrender.com/login", {
         method: "POST",
         body: JSON.stringify({ username, password }),
         headers: { "content-type": "application/json" },
@@ -36,7 +36,7 @@ const Login = () => {
         // console.log(data);
         toast.success("Login Sucessfully")
         setUserInfo(data);
-        navigate("https://my-blogs-baclkend.onrender.com//");
+        navigate("https://my-blogs-xlgz.onrender.com/");
         setIsUser(true)
         
       }
