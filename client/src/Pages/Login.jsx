@@ -36,7 +36,7 @@ const Login = () => {
         // console.log(data);
         toast.success("Login Sucessfully")
         setUserInfo(data);
-        navigate("https://my-blogs-xlgz.onrender.com/");
+        navigate("/");
         setIsUser(true)
         
       }
