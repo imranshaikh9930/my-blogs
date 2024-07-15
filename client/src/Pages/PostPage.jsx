@@ -23,7 +23,7 @@ const PostPage = () => {
 
   useEffect(() => {
     const getPost = async () => {
-      const resp = await fetch(`http://localhost:8080/post/${id}`);
+      const resp = await fetch(`https://my-blogs-xlgz.onrender.com/post/${id}`);
       const data = await resp.json();
       setPostInfo(data);
     };
@@ -37,7 +37,7 @@ const PostPage = () => {
 
   const deletePost = async () => {
     try {
-      const resp = await fetch(`http://localhost:8080/delete/${id}`, {
+      const resp = await fetch(`https://my-blogs-xlgz.onrender.com/delete/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
@@ -59,7 +59,7 @@ const PostPage = () => {
   const fetchPostCmt = async () => {
     try {
       // Corrected the typo in the URL
-      const resp = await fetch(`http://localhost:8080/comments/${id}`);
+      const resp = await fetch(`https://my-blogs-xlgz.onrender.com/comments/${id}`);
 
       if (!resp.ok) {
         throw new Error(`HTTP error! status: ${resp.status}`);
@@ -95,7 +95,7 @@ const PostPage = () => {
     formData.append("postId", postInfo._id);
     formData.append("userId", userInfo.id);
     try {
-      const resp = await fetch("https://my-blogs-baclkend.onrender.com/create", {
+      const resp = await fetch("https://my-blogs-xlgz.onrender.com/create", {
         method: "POST",
         body: formData,
         credentials: "include",
@@ -137,7 +137,7 @@ const PostPage = () => {
               </div>
             )}
             <div className="image">
-              <img src={`https://my-blogs-baclkend.onrender.com/${postInfo.cover}`} alt="" />
+              <img src={`https://my-blogs-xlgz.onrender.com/${postInfo.cover}`} alt="" />
             </div>
             <div
               className="content"
